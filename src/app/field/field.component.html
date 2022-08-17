@@ -1,3 +1,4 @@
-<button class="btn btn-outline-secondary border-dark" (click)="onTurn()" [disabled]="disabled">
+<button class="btn border-dark" (click)="onTurn()" [disabled]="disabled"
+    [class]="colorStyle ? colorStyle : 'btn-outline-secondary'">
     {{ nollOrCross }}
 </button>

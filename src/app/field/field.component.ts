@@ -11,6 +11,7 @@ export class FieldComponent implements OnInit {
   nollOrCross = "...";
   @Input() elID;
   disabled = false;
+  colorStyle = "";
 
   constructor() { }
 
@@ -21,5 +22,7 @@ export class FieldComponent implements OnInit {
     this.sign.emit(this.elID);
     this.nollOrCross = this.makeSign;
     this.disabled = true;
+    this.colorStyle = this.makeSign == 'X' ? "btn-info" : "btn-danger";
+
   }
 }

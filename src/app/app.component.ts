@@ -9,78 +9,47 @@ export class AppComponent {
   title = "game-null";
 
   turnDone = "X";
+  gameOver = false;
 
   row_1 = new Array(3);
   row_2 = new Array(3);
   row_3 = new Array(3);
   fields = [this.row_1, this.row_2, this.row_3]
-  // rowNum;
-  // colNum;
 
+  game_row_1 = new Array(3);
+  game_row_2 = new Array(3);
+  game_row_3 = new Array(3);
+  dataFields = [this.game_row_1, this.game_row_2, this.game_row_3];
 
 
   makeTurn(fieldID) {
-    // console.log(this.turnDone);
-    console.log(fieldID)
-    // this.fields[fieldID[0]][fieldID[1]] = this.turnDone;
-    // this.determineRow(fieldID);
-    // this.determineColumn(fieldID);
-    // this.setSignIntoField();
-    this.fields[fieldID[0]][fieldID[1]] = "A"; // this string causes a bug
-    console.log(this.fields);
+
+    this.dataFields[fieldID[0]][fieldID[1]] = this.turnDone;
+    this.checkResult();
+    this.gameOver ? this.gameOver = true : null;
     this.turnDone === "X" ? this.turnDone = "0" : this.turnDone = "X";
   }
 
-  // determineRow(fieldID) {
-  //   switch (fieldID[0]) {
-  //     case "0": {
-  //       // console.log("eka rivi");
-  //       this.rowNum = 0;
-  //       console.log("row num: ", this.rowNum);
-  //       break;
-  //     }
-  //     case "1": {
-  //       // console.log("toka rivi");
-  //       this.rowNum = 1;
-  //       console.log("row num: ", this.rowNum);
-  //       break;
-  //     }
-  //     case "2": {
-  //       // console.log("kolmas rivi");
-  //       this.rowNum = 2;
-  //       console.log("row num: ", this.rowNum);
-  //       break;
-  //     }
-  //   }
-  // }
+  checkResult() {
 
-  // determineColumn(fieldID) {
-  //   switch (fieldID[1]) {
-  //     case "0": {
-  //       // console.log("eka sarake");
-  //       this.colNum = 0;
-  //       console.log("col num: ", this.colNum);
-  //       break;
-  //     }
-  //     case "1": {
-  //       // console.log("toka sarake");
-  //       this.colNum = 1;
-  //       console.log("col num: ", this.colNum);
-  //       break;
-  //     }
-  //     case "2": {
-  //       // console.log("kolmas sarake");
-  //       this.colNum = 2;
-  //       console.log("col num: ", this.colNum);
-  //       break;
-  //     }
-  //   }
-  // }
+    for (let i = 0; i <= 2; i++) {
+      // check horisontal
+      this.checkArr(this.dataFields[i]);
 
-  // setSignIntoField() {
-  //   // this.fields[this.rowNum][this.colNum] = this.turnDone;
-  //   console.log(this.fields);
-  //   this.fields[this.rowNum][this.colNum] = "A";
+      // check vertical
+      this.checkArr(new Array(this.dataFields[0][i], this.dataFields[1][i], this.dataFields[2][i]));
+    }
+    // check diagonal
+    this.checkArr(new Array(this.dataFields[0][0], this.dataFields[1][1], this.dataFields[2][2]));
+    this.checkArr(new Array(this.dataFields[0][2], this.dataFields[1][1], this.dataFields[2][0]));
 
-  // }
+
+  }
+
+  checkArr(arr) {
+    if ((arr[0] == 'X' || arr[1] == '0') && arr[0] == arr[1] && arr[0] == arr[2]) {
+      this.gameOver = true;
+    }
+  }
+
 }
