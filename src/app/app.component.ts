@@ -26,7 +26,7 @@ export class AppComponent {
     // this.determineRow(fieldID);
     // this.determineColumn(fieldID);
     // this.setSignIntoField();
-    this.fields[0][0] = "A"; // this string causes a bug
+    this.fields[fieldID[0]][fieldID[1]] = "A"; // this string causes a bug
     console.log(this.fields);
     this.turnDone === "X" ? this.turnDone = "0" : this.turnDone = "X";
   }
