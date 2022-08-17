@@ -2,21 +2,21 @@
   <div class="row">
     <div class="btn-group">
       <app-field *ngFor="let field of fields[0]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'1'+inx">
+        [elID]="'0'+inx">
       </app-field>
     </div>
   </div>
   <div class="row">
     <div class="btn-group">
       <app-field *ngFor="let field of fields[1]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'2'+inx">
+        [elID]="'1'+inx">
       </app-field>
     </div>
   </div>
   <div class="row">
     <div class="btn-group">
       <app-field *ngFor="let field of fields[2]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'3'+inx">
+        [elID]="'2'+inx">
       </app-field>
     </div>
   </div>

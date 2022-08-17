@@ -10,6 +10,7 @@ export class FieldComponent implements OnInit {
   @Input() makeSign: string;
   nollOrCross = "...";
   @Input() elID;
+  disabled = false;
 
   constructor() { }
 
@@ -19,5 +20,6 @@ export class FieldComponent implements OnInit {
   onTurn() {
     this.sign.emit(this.elID);
     this.nollOrCross = this.makeSign;
+    this.disabled = true;
   }
 }
