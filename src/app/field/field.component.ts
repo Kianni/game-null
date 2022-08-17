@@ -8,12 +8,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class FieldComponent implements OnInit {
   @Output() sign = new EventEmitter<any>();
   @Input() makeSign: string;
+  nollOrCross = "...";
+  @Input() elID;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onTurn() {
-    this.sign.emit();
+    this.sign.emit(this.elID);
+    this.nollOrCross = this.makeSign;
   }
 }
