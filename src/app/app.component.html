@@ -1,26 +1,43 @@
 <div class="container mt-3">
   <div class="row">
     <div class="btn-group justify-content-center">
-      <app-field *ngFor="let field of fields[0]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'0'+inx">
+      <app-field
+        *ngFor="let field of fields[0]; let inx = index"
+        (sign)="makeTurn($event)"
+        [makeSign]="turnDone"
+        [elID]="'0' + inx"
+      >
       </app-field>
     </div>
   </div>
   <div class="row">
     <div class="btn-group justify-content-center">
-      <app-field *ngFor="let field of fields[1]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'1'+inx">
+      <app-field
+        *ngFor="let field of fields[1]; let inx = index"
+        (sign)="makeTurn($event)"
+        [makeSign]="turnDone"
+        [elID]="'1' + inx"
+      >
       </app-field>
     </div>
   </div>
   <div class="row">
     <div class="btn-group justify-content-center">
-      <app-field *ngFor="let field of fields[2]; let inx=index;" (sign)="makeTurn($event)" [makeSign]="turnDone"
-        [elID]="'2'+inx">
+      <app-field
+        *ngFor="let field of fields[2]; let inx = index"
+        (sign)="makeTurn($event)"
+        [makeSign]="turnDone"
+        [elID]="'2' + inx"
+      >
       </app-field>
     </div>
   </div>
   <div class="justify-content-center row">
-    <div *ngIf="gameOver" class="w-50 alert alert-warning justify-content-center">GAME OVER! Thank you=)</div>
+    <div *ngIf="gameOver" class="w-50 text-center alert alert-warning">
+      GAME OVER... "{{ turnDone }}" WON!
+    </div>
+    <div *ngIf="nobodyWon" class="w-75 text-center alert alert-warning">
+      "NOBODY WON... Press Ctrl+F5"
+    </div>
   </div>
 </div>
